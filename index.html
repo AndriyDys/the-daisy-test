@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Daisy Test</title>
+  <!-- If you create an Adobe Fonts web project for Corsair PE, paste the kit link here. -->
+  <!-- Example: <link rel="stylesheet" href="https://use.typekit.net/your-kit-id.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <button class="sound-toggle" id="soundToggle" type="button">Sound: on</button>
+    <div class="page-background-blooms" aria-hidden="true">
+      <span class="background-bloom bloom-1 bloom-cheerful"></span>
+      <span class="background-bloom bloom-2 bloom-restored"></span>
+      <span class="background-bloom bloom-3 bloom-calm"></span>
+      <span class="background-bloom bloom-4 bloom-hero"></span>
+      <span class="background-bloom bloom-5 bloom-cheerful"></span>
+      <span class="background-bloom bloom-6 bloom-restored"></span>
+      <span class="background-bloom bloom-7 bloom-calm"></span>
+      <span class="background-bloom bloom-8 bloom-glow"></span>
+    </div>
+    <main class="experience">
+      <section class="world-panel">
+        <div class="sparkles" id="sparkles"></div>
+
+        <div class="flower-stage">
+          <div class="status-badge" id="statusBadge">The daisy is waiting for your care</div>
+
+          <div class="flower-wrap">
+            <div class="flower-shadow"></div>
+            <div class="flower-character mood-neutral sprite-mode" id="flower">
+              <div class="flower-sprite-anchor" aria-hidden="true">
+                <div class="flower-sprite-shell">
+                  <div class="flower-sprite"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ui-panel">
+        <p class="eyebrow">Interactive Eco Story</p>
+        <h1>The Daisy Test</h1>
+        <p class="intro">
+          Help a little daisy survive. Every everyday choice you make changes the flower,
+          the forest, and the mood of the whole world around it.
+        </p>
+
+        <div class="progress-block">
+                <div class="progress-top">
+                    <span id="progressLabel">Press start to begin</span>
+                    <span id="questionCounter">0 / 10</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+        <section class="card start-card active" id="startCard">
+                <h2>Take care of nature</h2>
+                <p>
+                    You will answer ten random eco questions. Kind choices help the flower bloom,
+                    while wasteful decisions make it weaker and sadder.
+                </p>
+          <button class="primary-btn" id="startButton">Start the challenge</button>
+        </section>
+
+        <section class="card quiz-card" id="quizCard" hidden>
+          <div class="question-tag">Current choice</div>
+          <h2 id="questionText">Question text</h2>
+          <div class="answers" id="answers"></div>
+          <div class="tip-box" id="tipBox">
+            <strong>Eco tip:</strong>
+            <span id="tipText">Choose an answer to see a helpful tip.</span>
+          </div>
+          <button class="secondary-btn" id="nextButton" disabled>Next question</button>
+        </section>
+
+        <section class="card result-card" id="resultCard" hidden>
+          <div class="question-tag">Final result</div>
+          <h2 id="resultTitle">Your flower story</h2>
+          <p id="resultText"></p>
+          <div class="result-stats">
+            <div class="stat">
+              <span class="stat-label">Flower health</span>
+              <span class="stat-value" id="healthValue">0%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Choices made</span>
+              <span class="stat-value" id="choicesValue">10</span>
+            </div>
+          </div>
+          <div class="result-section">
+            <h3>Your eco badges</h3>
+            <div class="achievement-list" id="resultAchievements"></div>
+          </div>
+          <div class="result-section">
+            <h3>Personal summary</h3>
+            <ul class="result-summary" id="resultSummary"></ul>
+          </div>
+          <button class="primary-btn" id="restartButton">Try again and save the flower</button>
+        </section>
+      </section>
+    </main>
+
+    <section class="finale-overlay" id="finaleOverlay" hidden>
+      <div class="finale-particles" id="finaleParticles"></div>
+      <div class="finale-stage">
+        <div class="finale-flower-wrap">
+          <div class="flower-character mood-neutral sprite-mode" id="finaleFlower">
+            <div class="flower-sprite-anchor" aria-hidden="true">
+              <div class="flower-sprite-shell">
+                <div class="flower-sprite"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="finale-result-card">
+          <div class="question-tag">Final result</div>
+          <h2 id="finaleTitle">Your flower story</h2>
+          <p id="finaleText"></p>
+          <div class="result-stats">
+            <div class="stat">
+              <span class="stat-label">Flower health</span>
+              <span class="stat-value" id="finaleHealthValue">0%</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Choices made</span>
+              <span class="stat-value" id="finaleChoicesValue">10</span>
+            </div>
+          </div>
+          <div class="result-section">
+            <h3>Your eco badges</h3>
+            <div class="achievement-list" id="finaleAchievements"></div>
+          </div>
+          <div class="result-section">
+            <h3>Personal summary</h3>
+            <ul class="result-summary" id="finaleSummary"></ul>
+          </div>
+          <button class="primary-btn" id="finaleRestartButton">Try again and save the flower</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
